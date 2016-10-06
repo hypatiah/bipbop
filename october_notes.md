@@ -1,4 +1,4 @@
-# October 5, 2016
+# Wednesday October 5, 2016
 
 ## SQL
 * What is the difference between a View and a Table?
@@ -21,3 +21,12 @@ grade_current  name                      location    COUNT(votes.politician_id)
 - .header on
 - .mode column
 - .nullvalue NULL #changes nullvalue to null
+
+# Thursday October 6, 2016
+
+##Binary Search tree
+Definition: a binary search tree is a binary tree where:
+  - The data value of every node in a left subtree is LESS than data value of that node - aka all left children are of LESS value than the node itself
+  - The data value of every node in a node's right subtree is MORE than data value of that node - aka all right children are of MORE value than node itself
+  - if need equal node as child for whatever reason, can use count to keep track instead, since binary search tree doesnt allow for equal to
+* Note: A binary tree is NOT a binary search if there are duplicate values
