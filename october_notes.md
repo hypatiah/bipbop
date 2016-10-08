@@ -39,4 +39,22 @@ Definition: a binary search tree is a binary tree where:
 ## Graphs and Trees
 Trees are graphs that don't contain cycles, and a child can only have one parent.
 
-Graphs can contain cycles. 
+Graphs can contain cycles.
+
+Tree example in ruby:
+class Tree
+  attr_accessor :children, :value
+
+  def initialize(value)
+    @value = value
+    @children = []
+  end
+end
+
+tree = Tree.new(7)
+tree.children << Tree.new(3)
+tree.children << Tree.new(8)
+
+tree.value # => 7
+tree.children[0].value # => 3
+tree.children[0].value # => 8
