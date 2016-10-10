@@ -58,3 +58,5 @@ tree.children << Tree.new(8)
 tree.value # => 7
 tree.children[0].value # => 3
 tree.children[0].value # => 8
+
+Trie definition: 
