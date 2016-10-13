@@ -42,7 +42,7 @@ Trees are graphs that don't contain cycles, and a child can only have one parent
 Graphs can contain cycles.
 
 Tree example in ruby:
-class Tree
+`class Tree
   attr_accessor :children, :value
 
   def initialize(value)
@@ -57,6 +57,37 @@ tree.children << Tree.new(8)
 
 tree.value # => 7
 tree.children[0].value # => 3
-tree.children[0].value # => 8
+tree.children[0].value # => 8`
 
-Trie definition: 
+# Monday October 10, 2016
+
+## Deploy to AWS
+1. Create an Application Server
+2. Create a DB Server
+3. Deploy an app to your Application Server
+4. Scale and Load-Balance your Web App
+5. Give a Domain Name to your Website
+6. Cleaning up
+
+# Wednesday October 12, 2016
+
+## Time complexity
+Definition of Complexity: max number of dominant operations a program may execute, where *dominant* refers to operations performed the largest number of times.
+
+**example:**
+`def dominant(n)
+  result = 0
+  while i < n
+    result += 1
+  end
+  result
+end`
+
+The operation `result += 1` is the dominant operation, and is executed *n* times. Which is O(n) - linear complexity.
+
+*Fun Fact:* An average computer today performs 10^8 operations in under 1 second.
+
+Given a limit of size of data *n*:
+  * n <= 500 - expected time complexity: O(n^3)
+  * n <= 10,000 - expected time complexity: O(n^2)
+  * n <= 1,000,000 -  expected time complexity: O(n) or O(nlogn)
