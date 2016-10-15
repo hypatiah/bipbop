@@ -143,3 +143,36 @@ HEAD -> master -> C1  *(note C1 is a commit)*
 `git checkout C1`
 now head is:
 HEAD -> C1
+
+## GIT - Relative Refs
+Aka shortcuts to refer to places in commit history.
+
+Why use relative refs?
+Because referring to a git commit's hash that looks like 203948203948203948kdfj23ou234 isn't super convenient!
+*Note* You can however say git checkout 2039 and git will know to go checkout that commit, without fully typing it out
+
+**Relative commit commands:**
+ `^` - Move upwards one commit at a time
+  ex:
+    Given the tree: C0 -> C1 -> C2(master)
+    `git checkout master^`     
+    HEAD -> C1 = the first parent commit of master
+    *OR*
+    `git checkout master^^`
+    HEAD -> C0 = the second-generation ancestor of master
+    *OR*
+    `git checkout HEAD^`
+    HEAD -> C1
+
+
+ `~<num>` - Move upwards a number of times
+ ex:
+   Given the tree: C0 -> C1 -> C2 -> C3 -> C4(master)
+   HEAD -> master -> C4
+   `git checkout HEAD~4`
+   HEAD -> C1
+
+How is `~` useful you ask?
+**Branch Forcing:** directly reassign a branch to a specific commit with `-f`
+  ex:
+  `git branch -f master HEAD~3` = Moves (by force) branch master to three parent commits behind the HEAD
