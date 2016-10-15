@@ -91,3 +91,41 @@ Given a limit of size of data *n*:
   * n <= 500 - expected time complexity: O(n^3)
   * n <= 10,000 - expected time complexity: O(n^2)
   * n <= 1,000,000 -  expected time complexity: O(n) or O(nlogn)
+
+
+# Friday October 14, 2016
+
+## Merge Sort
+
+`list = []
+def merge_sort(list)
+  if list.length <= 1
+    list
+  else
+    mid = (list.length / 2).floor
+    left = merge_sort(list[0..mid - 1])
+    right = merge_sort(list[mid..list.length])
+    merge(left,right)
+  end
+end
+
+
+# left = [ 1, 4, 1, 3]
+# right = [ 100, 101, ]
+
+def merge(left, right)
+  if left.empty?
+    right
+  elsif right.empty?
+    left
+  elsif left.first < right.first
+    [left.first] + merge(left[1..left.length], right)
+    # newly_merged = [1] + merge([4, 1, 3], right)
+  else
+    [right.first] + merge(left, right[1..right.length])
+  end
+end
+
+#Driver code
+arr = [5, 7, 15, 6, 14, 33]
+p merge_sort(arr)`
