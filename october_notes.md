@@ -176,3 +176,7 @@ How is `~` useful you ask?
 **Branch Forcing:** directly reassign a branch to a specific commit with `-f`
   ex:
   `git branch -f master HEAD~3` = Moves (by force) branch master to three parent commits behind the HEAD
+
+# Saturday October 15, 2016
+
+In Java, the **int** data type only allows values between -2,147,483,648 and 2,147,483,647
