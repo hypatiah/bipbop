@@ -179,4 +179,8 @@ How is `~` useful you ask?
 
 # Saturday October 15, 2016
 
+## JAVA
+Datatypes: *int, boolean, and char*
 In Java, the **int** data type only allows values between -2,147,483,648 and 2,147,483,647
+
+**Char:** a java datatype used to represent single characters. short for character, and must be enclosed in single quotes as such: 'h'
