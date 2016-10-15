@@ -129,3 +129,17 @@ end
 #Driver code
 arr = [5, 7, 15, 6, 14, 33]
 p merge_sort(arr)`
+
+## GIT - Head
+**Head:** symbolic name for currently checked out commit - aka what commit you're working on top of.
+
+Note: head points to most recent commit in working tree.
+Normally HEAD points to branch name, when you commit the status of the branch name is altered and change is visible through HEAD.
+
+**Detaching HEAD:** means attaching HEAD to a commit instead of branch.
+Example:
+before detaching head:
+HEAD -> master -> C1  *(note C1 is a commit)*
+`git checkout C1`
+now head is:
+HEAD -> C1
