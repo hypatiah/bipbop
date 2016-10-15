@@ -189,3 +189,25 @@ Note: In Java, variables must have specified data type.
 ex:
 `int myLuckyNumber = 11;`
 myLuckyNumber now stores the value 11 as an int type
+
+
+###Running Java Programs in Atom (or any text editor)
+1. Create your java app `touch HelloWorld.java`
+
+2. Write code:
+`public class HelloWorld {
+	public static void main(String[] args) {
+
+		System.out.println("Hello World");
+
+	}
+}`
+*Note: make sure class name is same as file name*
+
+3. Compile java code `javac HelloWorld.java`
+This compiles your java app which produces a HelloWorld.class file, which contains instructions for the Java Virtual Machine written in Java byte codes.
+
+4. Run `java HelloWorld`
+This command starts a Java Virtual Machine to load the HelloWorld class. Once it loads the class, it will execute the main method and print "Hello World" to the terminal window.
+
+*C'est fini!*
