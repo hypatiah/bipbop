@@ -211,3 +211,6 @@ This compiles your java app which produces a HelloWorld.class file, which contai
 This command starts a Java Virtual Machine to load the HelloWorld class. Once it loads the class, it will execute the main method and print "Hello World" to the terminal window.
 
 *C'est fini!*
+
+#Tuesday October 18, 2016
+config.ru = Rack configuration for Rack based servers used to start the application.
