@@ -220,7 +220,7 @@ Rails protect_from_forgery - protects from CSRF (Cross-Site Request Forgery)
 
 protect_from_forgery is included by default in the application_controller.rb controller when generating new applications
 
-In Rails, within forms it includes a hidden input field called authenticity_token, which contains a sychronizer token (cryptographically random tokens)
+In Rails, within forms it includes a hidden input field called authenticity_token, which contains a synchronizer token (cryptographically random tokens)
 (note only requests sent via POST will be verified)
 
 When the web app processes the POST request, the server compares value submitted for the authenticity_token to the value associated with the user's session. If it doesn't match it indicates request may be malicious.
@@ -256,7 +256,7 @@ module: mechanism for namespaces, also used as a mechanism for multiple inherita
 
 Explain A ||= B
 equivalent to: a || (a = b)
-a = b when a == falsy
+a = b when a == falsey
 otherwise a remains unchanged
 
 Whats the issue with the controller code?
@@ -312,7 +312,7 @@ What is a Filter? When is it called?
 Filters: methods called either before/after a controller action is called.
 
 ex:
-here UserDashboard/index page only accessible to loggin users
+here UserDashboard/index page only accessible to login users
 class UserDashboardController < Application Controller
   before_filter :confirm_logged_in, :except => [:login, :attempt_login, :logout]
   def index
@@ -349,6 +349,4 @@ Enumerables
 /#each_with_index = returns original item and also whatever position in the array it was located in
 /#select - returns new object filled with only those original items in block that returned true
 /#map - returns new array filled with whatever gets returned by block each time it runs
-/#inject (aka #reduce) - passes the element and whatever was returned by the previous iteration into the block, you can specify the itinial value or else it will default to the first item of the array
-  ex:
-  my_array.inject(0){|running_total, item|
+/#inject (aka #reduce) - passes the element and whatever was returned by the previous iteration into the block, you can specify the initial value or else it will default to the first item of the array
