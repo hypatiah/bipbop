@@ -214,3 +214,141 @@ This command starts a Java Virtual Machine to load the HelloWorld class. Once it
 
 #Tuesday October 18, 2016
 config.ru = Rack configuration for Rack based servers used to start the application.
+
+Rails protect_from_forgery - protects from CSRF (Cross-Site Request Forgery)
+
+
+protect_from_forgery is included by default in the application_controller.rb controller when generating new applications
+
+In Rails, within forms it includes a hidden input field called authenticity_token, which contains a sychronizer token (cryptographically random tokens)
+(note only requests sent via POST will be verified)
+
+When the web app processes the POST request, the server compares value submitted for the authenticity_token to the value associated with the user's session. If it doesn't match it indicates request may be malicious.
+
+
+*******
+Action Pack - provides view and controller layers in Rails
+
+- has the modules: Action Dispatch and Action Controller
+
+    * Action Dispatch: parses info about web requests, handles routing and does advanced processing such as decoding params, cookies and sessions related to HTTP
+
+    * Action Controller: provides base controller class. Result of an action is typically content generated from views. Triggers Action View
+
+  Note: users only directly interface with Action Controller, Action Dispatch is activated by default
+
+***
+config.ru = Rack configuration for Rack based servers used to start the application.
+
+
+*** Associations
+has_and_belongs_to_many = used to substitute creating a join table manually, but the downside is that it is not good because you can only use for a join table consisting solely of foreign keys. If in the future you need to add attributes to the join table, you would have to remove the has_and_belongs_to_many and create a join table and add has_many :other_model, through => :join_table_name to each model.
+
+
+***
+Top Rails Interview Questions
+
+How does a symbol differ from a string?
+A: symbols are immutable and reusable, retaining the same object_id
+
+What is a module? The difference btwn classes and modules?
+module: mechanism for namespaces, also used as a mechanism for multiple inheritance via mixins and cannot be instantiated like classes can
+
+Explain A ||= B
+equivalent to: a || (a = b)
+a = b when a == falsy
+otherwise a remains unchanged
+
+Whats the issue with the controller code?
+
+What PATHS will be defined by the following in config/routes.rb?
+resources :posts do
+  member do
+    get 'comments'
+  end
+  # generates route: /posts/:id/comments
+
+  collection do
+    post 'bulk_upload'
+  end
+
+  # generates route: /posts/bulk_upload
+end
+
+GET /posts
+POST /posts
+GET /posts/new
+GET /posts/:id/edit
+GET /posts/:id
+PATCH/PUT /posts/:id
+DELETE /posts:id
+GET /posts/:id/comments
+POST /posts/bulk_upload
+
+How would you create getter and setter methods in Ruby?
+attr_accessor = setter methods
+attr_reader getter methods
+
+
+Explain a Polymorphic Association
+Polymorphic associations allow a model to belong to more than one other model through a single association.
+Ex, pictures table can belong to both products and employees tables
+
+class Picture
+  belongs_to :imageable, polymorphic: true
+end
+
+class Employee
+  has_many :pictures, as: :imageable
+end
+
+class Product
+  has_many :pictures, as: :imageable
+end
+
+advantage of polymorphic: allows you to create a single Picture model, rather than separate models for EmployeePicture and ProductPicture example
+
+What is a Filter? When is it called?
+Filters: methods called either before/after a controller action is called.
+
+ex:
+here UserDashboard/index page only accessible to loggin users
+class UserDashboardController < Application Controller
+  before_filter :confirm_logged_in, :except => [:login, :attempt_login, :logout]
+  def index
+  end
+
+  def login
+  end
+
+  def attempt_login
+  end
+
+  def logout
+  end
+end
+
+
+Define the Rails MVC Implementation using an example:
+* Model (ActiveRecord)
+  maintains the relationship between Object and DB and handles validation, association, transactions and more. This layer provides an interface and binding between the tables in a relational database and the Ruby program code that manipulates database records.
+
+  Ruby method names are auto generated from field names of the db tables and so on.
+
+* Controller (ActionController)
+  The facility within the application that directs traffic, on the one hand querying the models for specific data and on the other hand organizing data (searching, sorting, messaging it) into a form that fits the need of a given view
+
+* View (ActionView)
+  presents data in particular format, triggered by a controller's decision to present the data. Every web connection to a Rails app results in the displaying of a view.
+
+
+*****
+Enumerables
+
+/#each = returns original object called on, really used for side effects and not what it returns
+/#each_with_index = returns original item and also whatever position in the array it was located in
+/#select - returns new object filled with only those original items in block that returned true
+/#map - returns new array filled with whatever gets returned by block each time it runs
+/#inject (aka #reduce) - passes the element and whatever was returned by the previous iteration into the block, you can specify the itinial value or else it will default to the first item of the array
+  ex:
+  my_array.inject(0){|running_total, item|
