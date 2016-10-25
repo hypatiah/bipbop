@@ -350,3 +350,10 @@ Enumerables
 /#select - returns new object filled with only those original items in block that returned true
 /#map - returns new array filled with whatever gets returned by block each time it runs
 /#inject (aka #reduce) - passes the element and whatever was returned by the previous iteration into the block, you can specify the initial value or else it will default to the first item of the array
+
+#Monday October 25, 2016
+
+##Hash tables
+Send a key through a hashing function (ex: MD5, SHA1, or one of own invention) that converts to an addressable space (some sort of index).
+
+Note: hash tables have O(1) (constant time) lookups, deletes and adds if you're doing a set/map.
