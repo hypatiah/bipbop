@@ -357,3 +357,16 @@ Enumerables
 Send a key through a hashing function (ex: MD5, SHA1, or one of own invention) that converts to an addressable space (some sort of index).
 
 Note: hash tables have O(1) (constant time) lookups, deletes and adds if you're doing a set/map.
+
+##Functional Programming
+Functional programming allows ways to structure code to be maintainable, composeable, and easy to reason about.
+
+Minimizes side effects: aka minimizing where we affect state.  
+
+Makes prgoram easier to reason because can easily reason through individual parts of code.
+
+*Pure function: a function that modifies no state and is idempotent*
+
+Generally want small, focused, pure functions.
+
+**Idempotent:** denoting an element of a set that is unchanged in value when multiplied or operated on by itself.
