@@ -370,3 +370,32 @@ Makes prgoram easier to reason because can easily reason through individual part
 Generally want small, focused, pure functions.
 
 **Idempotent:** denoting an element of a set that is unchanged in value when multiplied or operated on by itself.
+
+#Thursday October 27, 2016
+##Hash tables
+
+my_hash_spec.rb:
+`require"./my_hash"
+MyHash = Hash
+
+RSpec.describe MyHash do
+  it "sets and retrieves a value at a key" do
+    some_hash = MyHash.new
+    some_hash[:foo] = 3
+    expect(some_hash[:foo]).to eq(3)
+  end
+end`
+
+my_hash.rb:
+`class MyHash
+
+  #how to enact MyHash["foo"] = "bar"
+  def []=(key,value)
+  end
+
+  def [](key)
+  end
+end
+`
+
+to run, `rspec my_hash_spec.rb`
