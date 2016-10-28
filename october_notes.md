@@ -447,7 +447,9 @@ some_hash = [nil, nil, nil, nil, nil, "hi"]
 #Friday October 28, 2016
 ###Functional programming
 
-Higher-order functions: allows for composition of functions
+Higher-order functions: functions that take other functions as arguments.
+
+Higher-order functions allows for composition of functions
 *filter, for example is a higher-order function*
 
 ex:
@@ -482,3 +484,36 @@ var dogs = animals.filter(isDog)
 
 * Opposite of `.filter` is `.reject`
 ex: `var otherAnimals = animals.reject(isDog)`
+
+
+###.map
+Map transforms objects in an array
+
+ex:
+`var animals = [
+  { name: 'Fluffykins', species: 'rabbit'}
+  { name: 'Caro', species: 'dog'}
+  { name: 'Hamilton', species: 'dog'}
+  { name: 'Harold', species: 'fish'}
+  { name: 'Jimmy', species: 'fish'}
+]
+
+// non functional
+var names = []
+for (var i = 0; i < animals.length; i++) {
+  names.push(animals[i].name)
+}`
+
+**Note:**`map `expects to return transformed object, instead of `filter` which expects to return a true or false statement
+
+var names = animals.map(function(animal) {
+    return animal.name + ' is a ' + animal.species
+  })
+
+or
+`var name = animals.map(function(animal) { return animal.name})``
+
+or better in **ES6**
+`var name = animals.map((animal) => animal.name)`
+or BEST
+`var name = animals.map((x) => x.name)`
