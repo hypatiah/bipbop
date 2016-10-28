@@ -373,6 +373,9 @@ Generally want small, focused, pure functions.
 
 #Thursday October 27, 2016
 ##Hash tables
+*Note: live coding from https://www.youtube.com/watch?v=gKUzL_GUh_A*
+
+**Collision:** When a hash function returns the same index for two different keys
 
 my_hash_spec.rb:
 `require"./my_hash"
@@ -384,18 +387,98 @@ RSpec.describe MyHash do
     some_hash[:foo] = 3
     expect(some_hash[:foo]).to eq(3)
   end
+
+  it "returns nil if a key isn't in the hash" do
+    some_hash = MyHash.new
+    expect(some_hash["bar"]).to eq(nil)
+  end
+
+  it "handles collisions" do
+    some_hash = MyHash.new
+
+    #Generate fake collision
+    expect(some_hash).to_receive(:h).with(:foo).and_return(5).at_least(:once)
+    #want to make sure when h is called for :bar it also returns 5
+    expect(some_hash).to_receive(:h).with(:bar).and_return(5).at_least(:once)
+
+    some_hash[:foo] = 2718
+    expect(some_hash[:foo]).to eq(2718)
+    expect(some_hash[:bar]).to eq(3141)
+  end
+
+  it "should resize the array eventually" do
+  end
 end`
 
 my_hash.rb:
 `class MyHash
+  def initialize
+    @array = []
+    @size = 10
+  end
 
   #how to enact MyHash["foo"] = "bar"
   def []=(key,value)
+    @array[h(key)] = value
   end
 
   def [](key)
+    @array[h(key)]
+  end
+
+  private
+  def h(key)
+    key.hash % @size
   end
 end
 `
 
 to run, `rspec my_hash_spec.rb`
+
+* If you do some_hash[5] = "hi"
+some_hash = [nil, nil, nil, nil, nil, "hi"]
+(have created nil holes in array)
+
+* Ruby has its own hash function:
+`key.hash # =>  4053034892734982734932`
+
+### BIRTHDAY PROBLEM = probability theory
+
+#Friday October 28, 2016
+###Functional programming
+
+Higher-order functions: allows for composition of functions
+*filter, for example is a higher-order function*
+
+ex:
+`var animals = [
+  { name: 'Fluffykins', species: 'rabbit'}
+  { name: 'Caro', species: 'dog'}
+  { name: 'Hamilton', species: 'dog'}
+  { name: 'Harold', species: 'fish'}
+  { name: 'Jimmy', species: 'fish'}
+]``
+
+iterative:
+`var dogs = []
+for (var i = 0; i < animals.length; i++) {
+  if (animals[i].species === 'dog') {
+    dogs.push(animals[i])
+  }
+}`
+
+functional:
+`var dogs = animals.filter(function(animal) {
+    return animal.species === 'dog'
+  })`
+
+or
+`var isDog = function(animal) {
+    return animal.species === 'dogs'
+}
+
+var dogs = animals.filter(isDog)
+`
+
+* Opposite of `.filter` is `.reject`
+ex: `var otherAnimals = animals.reject(isDog)`
