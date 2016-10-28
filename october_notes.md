@@ -517,3 +517,78 @@ or better in **ES6**
 `var name = animals.map((animal) => animal.name)`
 or BEST
 `var name = animals.map((x) => x.name)`
+
+###`Reduce`
+`var orders = [
+  { amount: 250 },
+  { amount: 400 },
+  { amount: 100 },
+  { amount: 250 }
+]`
+
+non-functional method:
+`var totalAmount = 0
+for (var i= 0; i < orders.length; i++) {
+  totalAmount += orders[i].amount
+  }`
+
+functional method:
+`var totalAmount = orders.reduce(function() {
+    return sum + order.amount
+  }, 0)
+`
+
+functional ES6 method:
+`var totalAmount = orders.reduce((sum, order) => sum + order.amount, 0)`
+
+can use reduce to reduce to more than just value, can be reduced to an object
+
+*Advanced reduce*
+awnt to convert the file:
+`mark johnson waffle iron 80 2
+mark johnson blender 200 1
+nikita smith waffle iron 80 1`
+
+to
+`{
+  'mark johnson': [
+    { name: 'waffle iron', price: '80', quantity: '2'}
+    { name: 'blender', price: '200', quantity: '1'}
+    { name: 'waffle iron', price: '80', quantity: '2'}
+  ],
+  'nikita smith': [
+    { name: 'waffle iron', price: '80', quantity: '1'}
+  ]
+}`
+
+`import fs from 'fs'
+
+fs.readFileSync('data.txt') // => <Buffer 6d 61 72 6b 73 ...>
+`
+
+note: `fs.readFileSync('data.txt') // => <Buffer 6d 61 72 6b 73 ...>` because strings are lots of bites, so need a character encoding to turn into strings, which is why use
+`fs.readFileSync('data.txt', 'utf8')`
+and `.trim()` is equivalent to `.chomp` in ruby, gets rid of any line space at the end of every line
+
+so now have:
+`import fs from 'fs'
+
+var output = fs.readFileSync('data.txt', 'utf8')
+  .trim()
+  .split('\n')
+  .map(line => line.split('\t'))
+  .reduce( (customer, line) => {
+      customers[line[0]] = []
+      customers[line[0]].push({
+        name: line[1],
+        price: line[2],
+        quantity: line[3]
+        })
+        return customers  
+    }, {})
+
+console.log('output', JSON.stringify(output, null, 2))
+`
+
+###`Find`
+transforms array into single item
