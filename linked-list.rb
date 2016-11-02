@@ -4,6 +4,13 @@ class Node
   def initialize(node)
     @node = node
   end
+
+  #visual representation of linked-list
+  def self.node_list(node, msg = nil)
+    msg ||= ""
+    return msg[0..-4] if node.nil?
+    node_list(node.next, msg << "#{node.node} -> ")
+  end
 end
 
 # ## To make basic link list
