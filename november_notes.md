@@ -40,3 +40,5 @@ irb(main):009:0> node.next.node.class
 
 irb(main):010:0> node.next.next
 => nil`
+
+#Wednesday November 2nd, 2016

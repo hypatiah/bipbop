@@ -11,6 +11,28 @@ class Node
     return msg[0..-4] if node.nil?
     node_list(node.next, msg << "#{node.node} -> ")
   end
+
+  def self.last(node)
+    return node if node.next.nil?
+    node = last node.next
+  end
+
+  def self.reverse(node)
+    return node if node.next.nil?
+
+    base, left, node.next = node.next, node, nil
+    right = base.next
+
+    while right != nil
+      base.next = left
+      left = base
+      base = right
+      right = right.next
+    end
+
+    head.next = swap
+    head
+  end
 end
 
 # ## To make basic link list
