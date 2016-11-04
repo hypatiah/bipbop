@@ -41,4 +41,68 @@ irb(main):009:0> node.next.node.class
 irb(main):010:0> node.next.next
 => nil`
 
-#Wednesday November 2nd, 2016
+#Thursday November 3rd, 2016
+## REACT NATIVE MEETUP NOTES
+
+###Base component
+
+
+NativeBase
+- set of re-usable UI components
+- highly customaizable and variable driven
+- based on design guidelines of Google & Android
+- variable driven like Bootstrap
+- 2200+ Github stars
+
+WITH native base:
+import {
+  Button,
+} from 'native-base'
+
+<Button primary>
+  Click me!
+</Button>
+or
+<Button success>
+  Click me!
+</Button>
+
+WITHOUT native base:
+var style = StyleSheet.create({
+  button: {
+    backgorundColor: ''
+  }
+  })
+
+import MK from 'maya-kai';
+MK.start();
+
+##Codepush
+has CI to tell if change is codepushable or not
+also can rollback changes
+
+
+##GANT
+Chain React: React Native conference summer 2017, portland or.
+
+Ignite: head start for react native
+
+rails composer: used to create apps in 1 hour.
+
+what is mob x?
+
+
+IGNITE: how would you choose the best set of development tools-setup. xcode version, react-native version and so far
+- job as producers
+- google play - doesnt work if have maps 9.4 and then something in lower version
+- problems with open source code bases that dont interact well with
+
+favorite rn components:
+vector icons
+animation library: react-native animatable
+
+react-native tab view - mateusz favorite rn components
+
+nucleid - for debugger with atom.
+
+microsoft development - using VScode
