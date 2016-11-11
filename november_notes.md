@@ -149,3 +149,85 @@ function merge(left, right)
 }
 
 console.log(mergeSort(a));`
+
+#Friday November 11, 2016
+#Trees and Graphs
+
+## Binary Search Tree
+every node has 0-2 children
+everything to left is less than node, everything greater than is to the right
+if the same, make it always go to the left or to the right
+
+having randomized numbers is better, so don't have o(n)
+
+can do binary search tree iteratively and recursively
+
+recursively: since subparts of binary search trees are also binary search trees, how you would use it recursively
+
+
+`class Tree {
+    constructor() {
+      this.root = null;
+    }
+
+    toObject() {
+      return this.root;
+    }
+
+    add(value) {
+
+    }
+  }
+
+  class Node {
+      //assign default left,right=null params
+      constructor(value, left=null, right=null) {
+          this.value = value;
+          this.left = left;
+          this.right = right;
+      }
+  }`
+
+example "add(value) function":
+`add(value) {
+    // create head if no head
+    if (this.root === null) {
+      this.root = new Node(value);
+      return;
+    }
+
+    let current = this.root;
+
+    // want to execute until explicitly break out of it, since if you add a value to a binary search tree, should always find a place to add to it
+    while(true) {
+      if (current.value > value) {
+        // go left
+
+        // if have a left child, move pointer to left and run loop again.
+        if (current.left) {
+          current = current.left;
+        }
+        // else, add value to the left child
+        else {
+          current.left = new Node(value);
+          return;
+        }
+      }
+      else {
+        // go right
+
+        if (current.right) {
+          current = current.right;
+        }
+        else {
+          current.right = new Node(value);
+          return;
+        }
+      }
+    }
+  }`
+
+  **practical uses:** if you have ordered data and you need to search for nodes very quickly.
+  *ex: elastic search or autocomplete*
+
+  
