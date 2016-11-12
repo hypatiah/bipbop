@@ -230,4 +230,12 @@ example "add(value) function":
   **practical uses:** if you have ordered data and you need to search for nodes very quickly.
   *ex: elastic search or autocomplete*
 
-  
+  ##AVL
+  Stands for
+  A specialized binary search tree.
+  So has same add(value) algorithm
+  Any thing that is an AVL tree is also a Binary Search Tree.
+
+  If tree is not balanced, have to use a rotation.
+
+  If difference in height is 2 or greater, than it is out of balance.
