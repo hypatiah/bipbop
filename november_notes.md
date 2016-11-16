@@ -252,3 +252,11 @@ Adding multiple elements to an array in Ruby:
 `arr = [1]
 arr += [2,3]
 arr #=> [1,2,3]`
+
+or
+`arr.push(2,3)`
+or
+`arr.concat([2,3])`
+OR at the beginning of the array:
+`arr.unshift(2,3)
+a #=> [2, 3, 1]`
