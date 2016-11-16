@@ -230,7 +230,7 @@ example "add(value) function":
   **practical uses:** if you have ordered data and you need to search for nodes very quickly.
   *ex: elastic search or autocomplete*
 
-  ##AVL
+##AVL
   Stands for
   A specialized binary search tree.
   So has same add(value) algorithm
@@ -239,3 +239,16 @@ example "add(value) function":
   If tree is not balanced, have to use a rotation.
 
   If difference in height is 2 or greater, than it is out of balance.
+
+
+#Monday, November 14th 2016
+Ternerary** conditional expression: it contains 3 arguments:
+1. a boolean
+2. an expression to evaluate if the boolean is true
+3. expression to evaluate if the boolean is false
+
+#Wednesday, November 16th 2016
+Adding multiple elements to an array in Ruby:
+`arr = [1]
+arr += [2,3]
+arr #=> [1,2,3]`
