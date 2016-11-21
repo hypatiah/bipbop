@@ -260,3 +260,7 @@ or
 OR at the beginning of the array:
 `arr.unshift(2,3)
 a #=> [2, 3, 1]`
+
+#Thursday, November 17th 2016
+##Graphs
+Simplest way to store a graph: adjacency matrix
