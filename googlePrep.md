@@ -79,10 +79,23 @@ Might send to a load balancer, connected to identical servers, and the load bala
 
 Load balancers can be placed anywhere where there is a huge amount of traffic.
 
-**Single point of failure:** 
+**Single point of failure:**
 document x - stored in Server 1
 document y - stored in Server 2
 
 if 100 requests shut down server 1, would not be able to access document X.
 
 To avoid single point of failure, Server 2 should have document y AND x.
+
+
+##Friday November 25. 2016
+###Binary Tree Traversal: BFS AND DFS
+BFS will find the shortest path every single time. DFS may, but it is not guaranteed.
+
+####DFS (Depth First Search):
+**Difference between Preorder, Inorder and Postorder:**
+Preorder <root><left><right> - recursively
+Inorder <left><root><right>
+Postorder <left><right><root>
+
+*Note: conventionally start with left before right*
