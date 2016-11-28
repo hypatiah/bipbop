@@ -99,3 +99,6 @@ Inorder <left><root><right>
 Postorder <left><right><root>
 
 *Note: conventionally start with left before right*
+
+##Sunday November 27, 2016
+Because JS uses lexical scoping, variables available outside functions are available inside functions. 
