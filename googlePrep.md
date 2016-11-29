@@ -101,4 +101,55 @@ Postorder <left><right><root>
 *Note: conventionally start with left before right*
 
 ##Sunday November 27, 2016
-Because JS uses lexical scoping, variables available outside functions are available inside functions. 
+Because JS uses lexical scoping, variables available outside functions are available inside functions.
+
+`var passed = 3;
+var addTo = function () {
+  var inner = 2;
+  return passed + inner;
+}
+
+console.dir(addTo); \\prints function, and in chrome dev console if you expand function scope and expand closure, you will see "passed: 3"`
+
+###Difference between console.log and console.dir
+`console.log` prints the element in an HTML-like tree
+`console.dir` prints the element in a JSON-like tree
+
+Specifically, `console.log` gives special treatment to DOM elements, whereas `console.dir` does not. This is often useful when trying to see the full representation of the DOM JS object.
+
+ex:
+`console.log([1,2,3])
+=> [1, 2, 3]
+console.dir([1,2,3])
+=> Array[3]`
+however both expand to the same:
+`0: 1
+1: 2
+2: 3
+length: 3
+* _proto_: Array[0]
+`
+Closure: functions with preserved data
+
+Callback functions:
+functions are first-class objects
+
+Events and arrays are **both** collections.
+
+## Monday, November 28th 2016
+
+In CS, a thread of execution is the smallest sequence of programmed instructions that can be managed independently by a scheduler, which is typically part of the operating system
+
+*in other words..*
+operating system > scheduler > thread = sequence of programmed instructions
+
+thread E process E scheduler E operating system
+
+In most cases a thread is a component of a process.
+Multiple threads can exist within one process. Multiple threads within a process execute concurrently and share resources like memory. Whereas different processes don't share memory.
+
+The threads of a process share values of its variables and the executable code.
+
+Typically, systems with 1 processor implement multithreading by time slicing.
+
+Time slicing is when the CPU (central processing unit) switches between different software threads.
