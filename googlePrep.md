@@ -180,3 +180,34 @@ maybe use 10, 15 or 20k bytes of data per minute, not 500k (like the novice may 
 
 what is server side going to look like.
 long term storage to the logs. allow resolution to deteriorate over time?
+
+##Tuesday, December 6th 2016
+- implement system routines
+  - distill large data sets into single values
+- system design:
+         - feature sets
+         - interfaces
+         - class hierarchies
+    - system design continued:
+         - designing system under certain constraints
+         - simplicity and robustness - tradeoffs
+
+###Overloading vs. Overriding in Java
+In Java,
+Overloading: when two methods have same name but differ in the type or number of arguments.
+ex:
+`public double computeArea(Circle c) { ... }
+public double computeArea(Square s) { ... }`
+Overriding: when a method shares the same name and function signature as another method in its super class.
+`public abstract class Shape {
+  public void printMe() {
+    System.out.println("I am a shape.");
+  }
+  public abstract double computeArea();
+}`
+
+In Java, **Vector** is very similar to an **ArrayList** but Vectors are synchronized.
+
+**synchronized**: synchronized blocks the next thread's call to method test() as long as the previous thread's execution is not finished. Threads can access this method one at a time. Without synchronized all threads can access this method simultaneously.
+
+"When you have two threads that are reading and writing to the same 'resource', say a variable named foo, you need to ensure that these threads access the variable in an atomic way. Without the synchronized keyword, your thread 1 may not see the change thread 2 made to foo, or worse, it may only be half changed. This would not be what you logically expect."
