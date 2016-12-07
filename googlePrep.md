@@ -153,3 +153,30 @@ The threads of a process share values of its variables and the executable code.
 Typically, systems with 1 processor implement multithreading by time slicing.
 
 Time slicing is when the CPU (central processing unit) switches between different software threads.
+
+##Sunday, December 4th 2016
+###Structure Design
+if given system design, don't care about monthly users, but how many at peak
+are they geographically distributed
+
+what percent are active every day? 70%
+what percent of daily users are active at peak hours? 70%
+i.e. if its geographically clustered, then will have a big cluster of people at the same time of daily
+
+how many are using it at one hour, per minute each hour?
+at peak time, have maybe 68k concurrent users at peak hour traffic users
+if it was a typical poorly optimized js application in node,  can only support 1,000 people per server
+so would need 68K servers
+
+now what does server need to do, what specific tasks does it need to take on
+
+if have 70k in mobile devices, how much will they send to server,
+whats max can you put through phone to not interfere with connection
+novice: half a megabyte a minute
+mediocre: say log 100 actions per minute, how many arbitrary data would be packaged in, how many integers, how many strings
+best answer: how much bandwidth do we have to take out to , if we did half a meg a minute, that would be 30 megs per hour, so maybe 10, 13 megs an hour will fit into   ithat may be too expensive for the user.
+make upper bound, just because can log more data, doesnt mean you should. megabytes of data are expensive and time consuming, if you're in an underdeveloped region that can be very expensice.
+maybe use 10, 15 or 20k bytes of data per minute, not 500k (like the novice may say)
+
+what is server side going to look like.
+long term storage to the logs. allow resolution to deteriorate over time?
