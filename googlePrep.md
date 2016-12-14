@@ -211,3 +211,8 @@ In Java, **Vector** is very similar to an **ArrayList** but Vectors are synchron
 **synchronized**: synchronized blocks the next thread's call to method test() as long as the previous thread's execution is not finished. Threads can access this method one at a time. Without synchronized all threads can access this method simultaneously.
 
 "When you have two threads that are reading and writing to the same 'resource', say a variable named foo, you need to ensure that these threads access the variable in an atomic way. Without the synchronized keyword, your thread 1 may not see the change thread 2 made to foo, or worse, it may only be half changed. This would not be what you logically expect."
+
+##Wednesday Dec 14, 2016
+###Overflow and Underflow
+**Overflow:** When new data is to be inserted into a data structure but there's no available space. Or in other words when the free storage list is empty.
+**Underflow:** When we want to delete data from a data structure that is empty. 
